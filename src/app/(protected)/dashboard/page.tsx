@@ -7,7 +7,7 @@ const page = async () => {
   return (
     // Server action to onBoard user
     
-    <div></div>
+    <div>Paje</div>
   )
 }
 

@@ -10,16 +10,18 @@ import ClerkAuthState from '../clerk-auth-state'
 import { SubscriptionPlan } from '../subscription-plan'
 import Items from '../sidebar/items'
 import Upgrade from '../sidebar/upgrade'
-import { LogoSmall } from '@/svgs/logo-small'
 import CreateAutomation from '../create-automation'
-import Search from '../search'
+import Search from './search'
+import Notification from './notification'
+import MainBreadCrumb from '../mainbreadcrumb'
 
 
 type Props = {
+
     slug: string
 }
 
-const Navbar = ({ slug }: Props) => {
+const Infobar = ({ slug }: Props) => {
     const { page } = usePaths()
     const currentPage = PAGE_BREAD_CRUMBS.includes(page) || page == slug
     return (currentPage && <div className='flex flex-col'>
@@ -56,8 +58,12 @@ const Navbar = ({ slug }: Props) => {
             </span>
             <Search />
             <CreateAutomation />
+            <Notification></Notification>
         </div>
+        <MainBreadCrumb
+            slug={slug}
+        />
     </div>)
 }
 
-export default Navbar
+export default Infobar
